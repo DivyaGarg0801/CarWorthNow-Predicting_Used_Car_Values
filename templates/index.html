@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarWorthNow</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarWorthNow</title>
+<style>
+    body 
+    {
+      margin: 0;
+      height: 100vh; /* Full viewport height */
+      background-image: url('{{ url_for('static', filename='Back.JPG') }}');
+      background-size: cover; /* Make the image cover the entire background */
+      background-position: center; /* Center the image */
+    }
+    form 
+    {
+        font-weight: bold;
+    }
+</style>
+
+    
+</head>
+<body>
+    <h1 style="text-align: center;">USED CAR PRICE PREDICTION</h1>
+    <form action="{{url_for('predict')}}" method="POST" style="width: 50%; margin: auto;">
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Car_Company">Car Company:</label>
+            <input type="text" id="Car_Company" name="Car_Company" placeholder="Car Company" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Model_Name">Model Name:</label>
+            <input type="text" id="Model_Name" name="Model_Name" placeholder="Model Name" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Location">Location:</label>
+            <input type="text" id="Location" name="Location" placeholder="Location" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Manufacturing_Year">Manufacturing Year:</label>
+            <input type="text" id="Manufacturing_Year" name="Manufacturing_Year" placeholder="Manufacturing Year" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Fuel_Type">Fuel Type:</label>
+            <input type="text" id="Fuel_Type" name="Fuel_Type" placeholder="Fuel Type" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Seats">Seats:</label>
+            <input type="text" id="Seats" name="Seats" placeholder="Seats" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Kms_Driven">Kms Driven:</label>
+            <input type="number" id="Kms_Driven" name="Kms_Driven" placeholder="Kms Driven" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Ownership">Ownership:</label>
+            <input type="text" id="Ownership" name="Ownership" placeholder="Ownership" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Transmission">Transmission:</label>
+            <input type="text" id="Transmission" name="Transmission" placeholder="Transmission" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Mileage">Mileage (kmpl):</label>
+            <input type="number" step="0.01" id="Mileage" name="Mileage" placeholder="Mileage (kmpl)" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Engine">Engine (cc):</label>
+            <input type="number" step="0.01" id="Engine" name="Engine" placeholder="Engine (cc)" required="required"/>
+        </div>
+        <div style="margin-bottom: 15px; text-align: center;">
+            <label for="Max_Power">Max Power (bhp):</label>
+            <input type="number" step="0.01" id="Max_Power" name="Max_Power" placeholder="Max Power (bhp)" required="required"/>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="btn btn-primary btn-large">Predict Price</button>
+        </div>
+    </form>
+    
+    <br>
+    <br>
+    <h4 >
+        <p style="text-align: center; font-size: 30px; font-weight: bold;"> Car Price is {{prediction_text}} Lakhs</p>
+    </h4>
+</body>
+</html>
+
